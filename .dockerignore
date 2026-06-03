@@ -1,0 +1,15 @@
+# Dependencies
+node_modules
+.next
+.git
+.env*
+!.env.example
+data
+public/uploads/*
+!public/uploads/.gitkeep
+*.db
+*.db-*
+.DS_Store
+coverage
+.vercel
+npm-debug.log*
