@@ -8,7 +8,11 @@ export async function POST() {
     const insights = await refreshUserInsights(userId);
     return NextResponse.json({ ok: true, insights });
   } catch (e) {
-    const message = e instanceof Error ? e.message : "生成失败";
+    const raw = e instanceof Error ? e.message : "生成失败";
+    const message =
+      raw.includes("Failed query") || raw.includes("SQLITE")
+        ? "数据库写入失败。Vercel 生产环境请配置 Turso（DATABASE_URL + TURSO_AUTH_TOKEN），详见 README。"
+        : raw;
     return NextResponse.json({ error: message }, { status: 400 });
   }
 }
