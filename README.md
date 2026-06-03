@@ -28,6 +28,32 @@
 - **AI**：小米 Mimo / 通义 / 智谱 / 豆包（`AI_PROVIDER=auto` 失败时本地图像分析兜底）
 - **图表**：Recharts
 
+## 在线演示
+
+生产环境已部署至：**https://draw-works.vercel.app**
+
+> 生产环境请在 Vercel 控制台配置 `DATABASE_URL`（推荐 [Turso](https://turso.tech)）并启用 **Blob Storage**，上传与数据才能持久化。AI Key 仅在 Vercel Environment Variables 中填写，勿提交到 Git。
+
+## 推送到 GitHub
+
+本地已提交，远程仓库需你先创建（当前账号 `srxiahua`）：
+
+```bash
+# 1. 在 GitHub 新建空仓库 Draw_works（不要勾选 README）
+# 2. 推送
+git remote add origin https://github.com/srxiahua/Draw_works.git
+git push -u origin main
+```
+
+或使用 GitHub CLI：
+
+```bash
+gh auth login
+gh repo create Draw_works --public --source=. --remote=origin --push
+```
+
+**安全提醒**：`.env.local` 已在 `.gitignore` 中，推送前可执行 `git status` 确认无密钥文件被 staged。
+
 ## 快速开始（本地）
 
 ### 1. 克隆与安装
